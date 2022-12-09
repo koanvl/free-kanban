@@ -8,9 +8,9 @@
           {{ column.name }} ( {{ column.tasks.length }} )
         </h2>
       </div>
-      <TransitionGroup tag="div" name="tasks" data-dragscroll class="flex flex-col gap-5">
+      <TransitionGroup tag="div" name="tasks" data-dragscroll class="flex flex-col gap-5">      
         <BoardTask @click="onClickTask(columnIndex, taskIndex)" v-for="(task, taskIndex) in column?.tasks"
-          :key="taskIndex" :task="task" />
+          :key="taskIndex" :task="task" />      
       </TransitionGroup>
     </section>
   </div>
@@ -19,7 +19,6 @@
 import BoardTask from "@/components/board/Task.vue";
 import { useBoardsStore } from '@/stores/boards.js';
 import { useManagerStore } from '@/stores/manager';
-
 const managerStore = useManagerStore();
 const boardsStore = useBoardsStore();
 const onClickTask = (column, task) => {
